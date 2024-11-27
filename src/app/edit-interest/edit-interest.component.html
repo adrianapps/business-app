@@ -1,0 +1,31 @@
+<h2>Edit:</h2>
+        <div>
+            <!-- <label>interest:
+                <input [(ngModel)]="currentValue" />
+                <button (click)="changeEditValue()">Save</button>
+                <button (click)="cancel()" >Cancel</button>
+            </label> -->
+
+
+            <form [formGroup]="formModel" (ngSubmit)='submitForm()'>
+                <input type="text" formControlName="valueForEdit">                 
+                @if(formModel.controls['valueForEdit'].errors?.['required']){
+                    <span class="error">Value is required</span>
+                }@else if(formModel.controls['valueForEdit'].errors?.['minlength']!=null){
+                    <span class="error">Min length is {{formModel.controls['valueForEdit'].errors?.['minlength']['requiredLength']}}</span>
+                }@else if(formModel.controls['valueForEdit'].errors?.['lettersValidator']!=null){
+                    <span class="error">Must contain only letters</span>
+                }@else if(formModel.controls['valueForEdit'].errors?.['duplicateInterest']) {
+                    <span class="error">This interest already exists in the list.</span>} 
+                
+                
+                <input [disabled]="!formModel.valid" type="submit" value="Send">
+            </form>
+
+            <button (click)="cancel()" >Cancel</button>
+            <p>{{formModel.value | json}}</p>
+            <p>{{formModel.valid}}</p>
+            <p>{{formModel.controls['valueForEdit'].errors | json}}</p>
+        </div>
+
+        <!-- <p>{{ 1.23 | currency: 'EUR': 'symbol' }} </p> -->

@@ -1,0 +1,38 @@
+<!-- <div>
+    <p>{{ text4Pipe | kebaCase }} </p>
+    <p>{{ 1.23 | number :'3.1-5':'pl'}} </p>
+    <p>{{ 1.23 | number :'3.1-5'}} </p>
+
+    
+
+<p>{{ 1.23 | currency }} </p>
+<p>{{ 1.23 | currency: 'USD': 'symbol' }} </p>
+<p>{{ 1.23 | currency: 'EUR': 'symbol' }} </p>
+<p>{{ 1.23 | currency: 'PLN':'zł' }} </p>
+
+<div>{{ dateOfBirth | datePl }}</div>
+<div>{{ dateOfBirth | date:'longDate' }} </div>
+<div>{{ dateOfBirth | date:'shortTime' }}</div>
+<div>{{ dateOfBirth | date:'hh:mm:ss' }} </div>
+</div> -->
+
+
+<div class="all"> 
+    <h2>Mrs</h2>
+    <h3>{{ name }} {{ surname }}</h3>
+    <app-show-date [dateToShow]="dateOfBirth" title="Date of birth:" format="yyyy-mm-dd"></app-show-date>
+  
+    <app-manage-interests [interestList]="interests" [selected]="selected" 
+      (selectInterestInParent)="selectInterest($event)">
+    </app-manage-interests>
+  
+    @if (selected > -1) {
+      <app-edit-interest 
+        [editValue]="interests[selected]" 
+        (doEditInParent)="doEdit()" 
+        [position]="selected">
+      </app-edit-interest>
+    }
+  </div>
+  
+
