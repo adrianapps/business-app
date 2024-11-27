@@ -44,7 +44,7 @@ export class EditInterestComponent {
           this.interestService.Interest.filter(
             (_, index) => index !== this.position
           )
-        ), // Wyklucz bieżące zainteresowanie
+        ),
       ]),
     });
   }
